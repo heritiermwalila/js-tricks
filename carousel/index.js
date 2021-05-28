@@ -101,6 +101,11 @@
   }
 
   goItem(index) {
+    if(index < 0){
+      index = this.items - this.options.sliderToShow
+    }else if(index >= this.items.length || !this.items[this.currentSlider + this.options.sliderToShow]){
+      index = 0
+    }
     const translateX = (index * -100) / this.items.length;
     console.log(index);
 
